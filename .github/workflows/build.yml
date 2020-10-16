@@ -1,0 +1,35 @@
+name: Build
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+      - hotfix/*
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@v2
+
+      - name: Install .NET Core SDK 5.0.100-rc.2.20479.15
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.100-rc.2.20479.15'
+
+      - name: Run Cake script
+        env:
+          PUBLISH_STORAGE_ACCOUNT: ${{ secrets.PUBLISH_STORAGE_ACCOUNT }}
+          PUBLISH_STORAGE_CONTAINER: ${{ secrets.PUBLISH_STORAGE_CONTAINER }}
+          PUBLISH_STORAGE_KEY: ${{ secrets.PUBLISH_STORAGE_KEY }}
+        run: |
+          echo ::group::".NET Tool Restore"
+          dotnet tool restore
+          echo ::endgroup::
+          dotnet cake
