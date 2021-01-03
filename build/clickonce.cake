@@ -25,7 +25,7 @@ public static void MageTool(
     )
 {
     context.DotNetCoreTool(
-                "mage.net",
+                "mage",
                 new DotNetCoreToolSettings {
                     WorkingDirectory = WorkingDirectory,
                     ArgumentCustomization = args

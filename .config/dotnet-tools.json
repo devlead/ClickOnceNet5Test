@@ -3,13 +3,13 @@
   "isRoot": true,
   "tools": {
     "microsoft.dotnet.mage": {
-      "version": "5.0.0-rc.2.20513.1",
+      "version": "5.0.0",
       "commands": [
-        "Mage.NET"
+        "dotnet-mage"
       ]
     },
     "cake.tool": {
-      "version": "1.0.0-alpha0148",
+      "version": "1.0.0-rc0002",
       "commands": [
         "dotnet-cake"
       ]
