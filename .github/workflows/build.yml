@@ -30,6 +30,9 @@ jobs:
           PUBLISH_STORAGE_CONTAINER: ${{ secrets.PUBLISH_STORAGE_CONTAINER }}
           PUBLISH_STORAGE_KEY: ${{ secrets.PUBLISH_STORAGE_KEY }}
         run: |
+          echo ::group::".NET NuGet Clear Cache"
+          dotnet nuget locals --clear all
+          echo ::endgroup::
           echo ::group::".NET Tool Restore"
           dotnet tool restore
           echo ::endgroup::
