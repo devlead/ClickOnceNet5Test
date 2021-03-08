@@ -1,4 +1,4 @@
-#load "nuget:?package=Cake.ClickOnce.Recipe&version=0.2.0"
+#load "nuget:?package=Cake.ClickOnce.Recipe&version=0.3.0"
 
 ClickOnce.ApplicationName = "MyApp";
 ClickOnce.Publisher = "devlead";
