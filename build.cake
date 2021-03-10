@@ -22,6 +22,7 @@ DotNetCoreTool(
                                                 )
                                                     ? "report"
                                                     : "analyze"
-                                                ),
+                                                )
+                                            .AppendSwitchQuoted("--buildversion", ClickOnce.Version),
     }
 );
