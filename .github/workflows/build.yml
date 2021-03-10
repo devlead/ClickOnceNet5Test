@@ -25,6 +25,8 @@ jobs:
           PUBLISH_STORAGE_ACCOUNT: ${{ secrets.PUBLISH_STORAGE_ACCOUNT }}
           PUBLISH_STORAGE_CONTAINER: ${{ secrets.PUBLISH_STORAGE_CONTAINER }}
           PUBLISH_STORAGE_KEY: ${{ secrets.PUBLISH_STORAGE_KEY }}
+          NuGetReportSettings_SharedKey: ${{ secrets.NUGETREPORTSETTINGS_SHAREDKEY }}
+          NuGetReportSettings_WorkspaceId: ${{ secrets.NUGETREPORTSETTINGS_WORKSPACEID }}
         run: |
           echo ::group::".NET NuGet Clear Cache"
           dotnet nuget locals --clear all
