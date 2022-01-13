@@ -1,13 +1,13 @@
-#load "nuget:?package=Cake.ClickOnce.Recipe&version=0.3.0"
+#load "nuget:?package=Cake.ClickOnce.Recipe&version=0.5.0"
 
 ClickOnce.ApplicationName = "MyApp";
 ClickOnce.Publisher = "devlead";
-ClickOnce.PublishUrl = "https://clickoncenet5test.blob.core.windows.net/publish";
+ClickOnce.PublishUrl = "https://cakeclickonceexample.blob.core.windows.net/publish";
 ClickOnce.RunBuild();
 
-DotNetCoreTool(
+DotNetTool(
     "tool",
-    new DotNetCoreToolSettings {
+    new DotNetToolSettings {
         ArgumentCustomization = args => args
                                             .Append("run")
                                             .Append("dpi")
@@ -23,6 +23,6 @@ DotNetCoreTool(
                                                     ? "report"
                                                     : "analyze"
                                                 )
-                                            .AppendSwitchQuoted("--buildversion", ClickOnce.Version),
+                                            .AppendSwitchQuoted("--buildversion", ClickOnce.Version)
     }
 );
